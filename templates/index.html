@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braille Auto-Correct System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Braille Auto-Correct System</h1>
+        
+        <div class="input-area">
+            <div id="output" contenteditable="true"></div>
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <p>Use keys D, W, Q, K, O, P to input Braille characters.</p>
+            <p>Press multiple keys simultaneously to form a Braille character.</p>
+            <p>Space to separate words, Backspace to delete.</p>
+        </div>
+    </div>
+    
+    <audio id="keySound" src="/static/sounds/keypress.mp3" preload="auto"></audio>
+    
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
