@@ -5,7 +5,7 @@ from utils import normalize_braille_sequence
 from braille_model import BrailleBERTModel
 import time
 from utils import find_closest_braille_sequence, get_common_error_patterns
-
+from werkzeug.middleware.proxy_fix import ProxyFix
 app = Flask(__name__)
 
 # Load key mapping
@@ -86,4 +86,5 @@ def learn_from_correction():
     return jsonify({'status': 'success'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
+    app.run(host='0.0.0.0', port=10000)
