@@ -87,5 +87,6 @@ def learn_from_correction():
     return jsonify({'status': 'success'})
 
 if __name__ == '__main__':
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
